@@ -1,4 +1,6 @@
 <?php 
+    get_header();
+
     while(have_posts()) {
         /* ?: stops php so you can write html */
         the_post(); ?>
@@ -10,4 +12,6 @@
         <?php 
         /*  ?php: to resume php */
     }
+
+    get_footer();
 ?>
