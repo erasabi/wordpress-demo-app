@@ -1,19 +1,24 @@
 <?php
 
 function university_files() {
-    // load custom JS
-    // wp_enqueue_script(
-    //  <nickname for script>, 
-    //  <location pointing to style file>, <dependencies || NULL if none>, <version || 1.0 if not matter>, 
-    //  <load at bottom of page (before closing body tag) else loads at top >
-    // )
-    wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
-
     // load custom fonts/styles
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-    // wp_enqueue_styles('<nickname for stylesheet>', <location pointing to style file>)
-    wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+
+  
+    if (strstr($_SERVER['SERVER_NAME'], 'fictional-university.local')) {
+      // load custom JS
+      // wp_enqueue_script(
+      //  <nickname for script>, 
+      //  <location pointing to style file>, <dependencies || NULL if none>, <version || 1.0 if not matter>, 
+      //  <load at bottom of page (before closing body tag) else loads at top >
+      // )
+      wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
+    } else {
+      wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.8c97d901916ad616a264.js'), NULL, '1.0', true);
+      wp_enqueue_script('main-university-js', get_theme_file_uri('/bundled-assets/scripts.bc49dbb23afb98cfc0f7.js'), NULL, '1.0', true);
+      wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.bc49dbb23afb98cfc0f7.css'));
+    }
 }
 
 // add_action(<name of hook to use>, <name of function associated>) 
