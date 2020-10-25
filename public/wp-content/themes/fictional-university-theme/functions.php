@@ -7,7 +7,7 @@ function university_files() {
     //  <location pointing to style file>, <dependencies || NULL if none>, <version || 1.0 if not matter>, 
     //  <load at bottom of page (before closing body tag) else loads at top >
     // )
-    wp_enqueue_script('main-university-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);
+    wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
 
     // load custom fonts/styles
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
