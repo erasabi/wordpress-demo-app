@@ -2,6 +2,11 @@
 
 function university_files() {
     // load custom JS
+    // wp_enqueue_script(
+    //  <nickname for script>, 
+    //  <location pointing to style file>, <dependencies || NULL if none>, <version || 1.0 if not matter>, 
+    //  <load at bottom of page (before closing body tag) else loads at top >
+    // )
     wp_enqueue_script('main-university-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);
 
     // load custom fonts/styles
